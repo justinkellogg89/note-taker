@@ -1,6 +1,4 @@
 const express = require("express");
-const path = require("path");
-const fs = require("fs");
 const db = require("./db/db");
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -15,7 +13,7 @@ app.get("/api/notes", async function (req, res) {
 });
 
 app.post("/api/notes", async function (req, res) {
-  await db.addNote(req.body);
+  await db.addNewNote(req.body);
   res.send("new note");
 });
 
